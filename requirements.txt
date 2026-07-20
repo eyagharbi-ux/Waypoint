@@ -1,0 +1,37 @@
+# ==============================================================================
+#  requirements.txt  –  Dépendances du projet PGuard Navigator
+# ==============================================================================
+#  Projet  : Robot de sécurité PGuard – Enova Robotics
+#  Python  : >= 3.11 recommandé (3.10 minimum)
+#
+#  Installation :
+#      pip install -r requirements.txt
+#
+#  Notes :
+#    - PyQt6-WebEngine est nécessaire pour le QWebEngineView (carte interactive).
+#    - folium génère la carte Leaflet.js en HTML pur (pas de serveur web requis).
+#    - networkx fournit les algorithmes de graphe (Dijkstra, A*).
+#    - osmnx est optionnel ici (on parse le fichier .osm directement avec xml.etree),
+#      mais il est inclus pour permettre de télécharger d'autres zones OSM à l'avenir.
+# ==============================================================================
+
+# --- Interface Graphique ---
+PyQt6>=6.6.0
+PyQt6-WebEngine>=6.6.0      # Nécessaire pour QWebEngineView (carte interactive)
+PyQt6-WebChannel>=6.6.0     # Nécessaire pour QWebChannel (bridge JS <-> Python)
+
+# --- Cartographie ---
+folium>=0.15.0              # Génération de cartes Leaflet.js (HTML interactif)
+
+# --- Algorithmes de graphe (pathfinding) ---
+networkx>=3.2.0             # Dijkstra, A*, composantes connexes, etc.
+
+# --- Données géospatiales (optionnel — pour extensions futures) ---
+osmnx>=1.9.0                # Téléchargement et manipulation de données OSM
+shapely>=2.0.0              # Géométries 2D (intersection, union, etc.)
+pyproj>=3.6.0               # Projection de coordonnées GPS (AEQD locale pour export JSON)
+
+# --- Utilitaires standards (déjà inclus dans Python, listés pour clarté) ---
+# xml.etree.ElementTree  →  parsing OSM (bibliothèque standard Python)
+# math                   →  calcul haversine (bibliothèque standard Python)
+# json                   →  export JSON (bibliothèque standard Python)

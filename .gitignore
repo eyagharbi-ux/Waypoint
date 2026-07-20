@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+dist/
+build/
+*.zip
+_map_cache.html
+pguard_trajectory_*.json
